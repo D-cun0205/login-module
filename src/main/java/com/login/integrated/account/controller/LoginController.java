@@ -18,7 +18,7 @@ public class LoginController {
     @PostMapping("/join")
     public ResponseEntity<String> join(@RequestBody AccountDto dto) {
         loginService.save(dto);
-        return ResponseEntity.ok().body("Success!!!");
+        return ResponseEntity.ok().body("join !!");
     }
 
     @GetMapping("/login")
@@ -28,9 +28,15 @@ public class LoginController {
     }
 
     @GetMapping("/isRefreshTokenCreateToken")
-    public ResponseEntity<JwtResponse> isRefreshTokenCreateToken(@RequestBody JwtRefreshRequest jwtRefreshRequest) {
-        JwtResponse jwtResponse = loginService.isRefreshTokenCreateToken(jwtRefreshRequest);
+    public ResponseEntity<JwtResponse> isRefreshTokenCreateToken(@RequestBody JwtRefreshRequest request) {
+        JwtResponse jwtResponse = loginService.isRefreshTokenCreateToken(request);
         return ResponseEntity.ok().body(jwtResponse);
+    }
+
+    @GetMapping("/logout")
+    public ResponseEntity<String> logout(@RequestBody JwtRefreshRequest request) {
+        loginService.removeRefreshToken(request);
+        return ResponseEntity.ok().body("logout !!");
     }
 
     /**
@@ -38,7 +44,7 @@ public class LoginController {
      */
     @GetMapping("/oauthLogin")
     public ResponseEntity<String> oauthLogin() throws Exception {
-        return ResponseEntity.ok().body("Success oauth login");
+        return ResponseEntity.ok().body("oauth login");
     }
 
 }

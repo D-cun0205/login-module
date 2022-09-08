@@ -46,7 +46,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint())
-            .and()
-                .addFilterBefore(new JwtTokenFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
+//            .and()
+//                .addFilterBefore(new (jwtTokenProvider), UsernamePasswordAuthenticationFilter.claJwtTokenFilterss)
+                .and()
+                .oauth2Client()
+        ;
     }
 }

@@ -10,7 +10,6 @@ public class AccountDto {
     private String name;
     private String email;
     private String password;
-
     private AuthType authType;
 
     public AccountDto(String name, String email, String password, AuthType authType) {

@@ -26,7 +26,7 @@ import java.util.List;
 public class JwtTokenProvider {
 
     private final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    private final Long ACCESS_EXPIRATION_MS = 3600000L;
+    public static final Long ACCESS_EXPIRATION_MS = 3600000L;
     public static final Long REFRESH_EXPIRATION_MS = 86400000L;
 
     private final UserDetailsService userDetailsService;
